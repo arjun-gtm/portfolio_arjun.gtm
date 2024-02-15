@@ -1,206 +1,114 @@
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Oswald', sans-serif; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  display: flex;
+  row-gap: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.container .image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.container header {
+  font-size: 60px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+.container p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  max-width: 550px;
+  text-align: center;
+}
+.container .time-content {
+  display: flex;
+  column-gap: 30px;
+  align-items: center;
+}
+.time-content .time {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.time .number,
+.time .text {
+  font-weight: 500;
+  color: #fff;
+}
+.time .number {
+  font-size: 40px;
+}
+.time .text {
+  text-transform: capitalize;
+  font-size: 12px;
+}
+.email-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 100%;
+}
+.email-content p {
+  font-size: 13px;
+}
+.input-box {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  max-width: 360px;
+  width: 100%;
+  margin-top: 20px;
+  column-gap: 20px;
+}
+.input-box input,
+.input-box button {
+  height: 100%;
+  outline: none;
+  border: none;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 400;
+}
+.input-box input {
+  width: 100%;
+  padding: 0 15px;
+  color: #fff;
+}
+input::placeholder {
+  color: #fff;
+}
+.input-box button {
+  cursor: pointer;
+  color: #fff;
+  white-space: nowrap;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+.input-box button:hover {
+  background-color: #fff;
+  color: #0d6a81;
+}
+@media screen and (max-width: 300px) {
+  .container header {
+    font-size: 50px;
   }
-  body {
-      overflow: hidden;
-      color: black;
-  }
-  .coming-soon {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url(/images/background.png);
-      background-position: center;
-      background-size: cover;
-      overflow: hidden;
-  }
-  .coming-soon-inner {
-      position: relative;
-  }
-  .heading {
-      font-size: 100px;
-      text-transform: uppercase;
-      padding: 20px;
-      background: #000;
-      color: #fece00;
-      transform: skewY(-10deg);
-      font-weight: 500;
-      line-height: 100px;
-  }
-  .small-heading {
-      font-size: 30px;
-      text-transform: uppercase;
-      display: inline-block;
-      padding: 20px;
-      background: #fff;
-      color: #000;
-      transform: skewY(-10deg);
-      font-weight: 500;
-      line-height: 30px;
-      box-shadow: 10px 10px 20px rgb(0 0 0 / .3);
-      position: absolute;
-      right: 0;
-      bottom: -44px;
-  }
-  
-  ul {
-      list-style: none;
-      display: flex;
-      column-gap: 10px;
-  }
-  .counter-timer {
-      transform: skewY(-10deg);
-      position: absolute;
-      left: 0;
-      bottom: -75px;
-  }
-  .counter-timer > ul > li {
-    color: white;
-    padding: 3px;
-  }
-  
-  
-  
-  /*******************************/
-  span.bar {
-      display: block;
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      z-index: 999;
-  }
-  span.bar i {
-        color: lime;
-        font-size: 35px;
-        cursor: pointer;
-  }
-  nav.toggle-nav {
-      position: fixed;
-      right: -100px;
-      background: #fff;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.1s linear;
-      z-index: 333;
-  }
-  nav.toggle-nav.active {
-    right: 0px;
-  }
-  ul.listing, ul.listing > li {
-      display: block;
-  }
-  ul.listing > li > a {
-      font-size: 30px;
-      color: #000;
-      padding: 10px;
-      display: block;
-      text-align: center;
-      transition: 0.5s linear;
-  }
-  ul.listing > li > a:hover{
-      color: #1820ff;
-      font-weight: bold;
-  }
-  
-  
-  .coming-soon-inner:before {
-        content: "";
-        height: 2px;
-        width: 60%;
-        background: yellow;
-        position: absolute;
-        top: -50px;
-        right: 0;
-        transform: skewY(-10deg);
-  }
-  
-  .coming-soon-inner:after {
-        content: "";
-        height: 2px;
-        width: 60%;
-        background: lime;
-        position: absolute;
-        bottom: -80px;
-        right: 0;
-        transform: skewY(-10deg);
-  }
-  
-  .heading:before {
-        content: "";
-        height: 2px;
-        width: 60%;
-        background: red;
-        position: absolute;
-        top: -50px;
-        left: 0;
-  }
-  
-  .heading:after {
-        content: "";
-        height: 2px;
-        width: 60%;
-        background: skyblue;
-        position: absolute;
-        bottom: -120px;
-        left: 0;
-  }
-  
-  
-  @media only screen and (max-width: 400px) and (min-width: 200px) {
-    .heading {
-        font-size: 30px;
-          line-height: 40px;
-        text-transform: uppercase;
-        padding: 10px 20px;
-    }
-    .small-heading {
-        font-size: 20px;
-          padding: 10px;
-          bottom: -49px;
-    }
-    .counter-timer li {
-        font-size: 12px;
-    }
-  
-    .coming-soon-inner:before {
-      top: -20px;
-    }
-    .heading:before {
-      top: -20px;
-    }
-    .heading:after {
-      bottom: -100px;
-    }
-  
-  } 
-  @media only screen and (max-width: 767px) and (min-width: 401px) {
-    .heading {
-        font-size: 40px;
-          line-height: 50px;
-        text-transform: uppercase;
-        padding: 10px 20px;
-    }
-    .small-heading {
-        font-size: 25px;
-          padding: 10px;
-          bottom: -48px;
-    }
-    .counter-timer li {
-        font-size: 15px;
-    }
-    .coming-soon-inner:before {
-      top: -30px;
-    }
-    .heading:before {
-      top: -30px;
-    }
-    .heading:after {
-      bottom: -100px;
-    }
 }
