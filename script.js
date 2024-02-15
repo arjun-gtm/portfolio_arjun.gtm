@@ -3,32 +3,37 @@ const seconds = document.querySelector(".seconds .number"),
   hours = document.querySelector(".hours .number"),
   days = document.querySelector(".days .number");
 
-let secValue = 11,
-  minValue = 2,
-  hourValue = 2,
-  dayValue = 30;
+// Future date to count down to
+const futureDate = new Date("2024-03-17T00:00:00"); // Desired future date
 
-const timeFunction = setInterval(() => {
-  secValue--;
+// Function to update the countdown
+function updateCountdown() {
+  const currentDate = new Date();
+  const difference = futureDate - currentDate;
 
-  if (secValue === 0) {
-    minValue--;
-    secValue = 60;
-  }
-  if (minValue === 0) {
-    hourValue--;
-    minValue = 60;
-  }
-  if (hourValue === 0) {
-    dayValue--;
-    hourValue = 24;
-  }
-
-  if (dayValue === 0) {
+  if (difference <= 0) {
     clearInterval(timeFunction);
+    return;
   }
-  seconds.textContent = secValue < 10 ? `0${secValue}` : secValue;
-  minutes.textContent = minValue < 10 ? `0${minValue}` : minValue;
-  hours.textContent = hourValue < 10 ? `0${hourValue}` : hourValue;
-  days.textContent = dayValue < 10 ? `0${dayValue}` : dayValue;
-}, 1000); //1000ms = 1s
+
+  let totalSeconds = Math.floor(difference / 1000);
+  let totalMinutes = Math.floor(totalSeconds / 60);
+  let totalHours = Math.floor(totalMinutes / 60);
+  let totalDays = Math.floor(totalHours / 24);
+
+  const secondsLeft = totalSeconds % 60;
+  const minutesLeft = totalMinutes % 60;
+  const hoursLeft = totalHours % 24;
+  const daysLeft = totalDays;
+
+  seconds.textContent = secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft;
+  minutes.textContent = minutesLeft < 10 ? `0${minutesLeft}` : minutesLeft;
+  hours.textContent = hoursLeft < 10 ? `0${hoursLeft}` : hoursLeft;
+  days.textContent = daysLeft < 10 ? `0${daysLeft}` : daysLeft;
+}
+
+// Initial call to update the countdown
+updateCountdown();
+
+// Update the countdown every second
+const timeFunction = setInterval(updateCountdown, 1000);
